@@ -9,7 +9,7 @@ trait Format
 {
     public function eur(string $value): string
     {
-        return number_format($value, 2, ',', ' ') . " €";
+        return number_format($value, 2, ',', ' ').' €';
     }
 
     public function size(int $bytes): string
@@ -20,27 +20,27 @@ trait Format
         $tb = $gb * 1024;
 
         if (($bytes >= 0) && ($bytes < $kb)) {
-            return $bytes . ' B';
+            return $bytes.' B';
 
         } elseif (($bytes >= $kb) && ($bytes < $mb)) {
-            return ceil($bytes / $kb) . ' KB';
+            return ceil($bytes / $kb).' KB';
 
         } elseif (($bytes >= $mb) && ($bytes < $gb)) {
-            return ceil($bytes / $mb) . ' MB';
+            return ceil($bytes / $mb).' MB';
 
         } elseif (($bytes >= $gb) && ($bytes < $tb)) {
-            return ceil($bytes / $gb) . ' GB';
+            return ceil($bytes / $gb).' GB';
 
         } elseif ($bytes >= $tb) {
-            return ceil($bytes / $tb) . ' TB';
+            return ceil($bytes / $tb).' TB';
         } else {
-            return $bytes . ' B';
+            return $bytes.' B';
         }
     }
 
     public function dateFrench($date, $hours = false): string
     {
-        if($hours) {
+        if ($hours) {
             return Carbon::createFromTimestamp(strtotime($date))->isoFormat('LLLL');
         } else {
             return Carbon::createFromTimestamp(strtotime($date))->isoFormat('LL');
