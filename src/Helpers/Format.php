@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 function eur($value): string
 {
-    return number_format($value, 2, ',', ' ') . " €";
+    return number_format($value, 2, ',', ' ').' €';
 }
 
 function size(int $bytes): string
@@ -18,21 +18,21 @@ function size(int $bytes): string
     $tb = $gb * 1024;
 
     if (($bytes >= 0) && ($bytes < $kb)) {
-        return $bytes . ' B';
+        return $bytes.' B';
 
     } elseif (($bytes >= $kb) && ($bytes < $mb)) {
-        return ceil($bytes / $kb) . ' KB';
+        return ceil($bytes / $kb).' KB';
 
     } elseif (($bytes >= $mb) && ($bytes < $gb)) {
-        return ceil($bytes / $mb) . ' MB';
+        return ceil($bytes / $mb).' MB';
 
     } elseif (($bytes >= $gb) && ($bytes < $tb)) {
-        return ceil($bytes / $gb) . ' GB';
+        return ceil($bytes / $gb).' GB';
 
     } elseif ($bytes >= $tb) {
-        return ceil($bytes / $tb) . ' TB';
+        return ceil($bytes / $tb).' TB';
     } else {
-        return $bytes . ' B';
+        return $bytes.' B';
     }
 }
 
@@ -50,7 +50,7 @@ function emoji(string $code)
     return implode(
         '',
         array_map(
-            fn($letter) => mb_chr(ord($letter) % 32 + 0x1F1E5),
+            fn ($letter) => mb_chr(ord($letter) % 32 + 0x1F1E5),
             str_split($code)
         )
     );
@@ -60,9 +60,9 @@ function textForSlugify(string $string): string
 {
     $firstLetter = Str::substr($string, 0, 1);
     if ($firstLetter == 'a' || $firstLetter == 'e' || $firstLetter == 'i' || $firstLetter == 'o' || $firstLetter == 'u' || $firstLetter == 'y' || $firstLetter == 'A' || $firstLetter == 'E' || $firstLetter == 'I' || $firstLetter == 'O' || $firstLetter == 'U' || $firstLetter == 'Y') {
-        return 'd\'' . $string;
+        return 'd\''.$string;
     } else {
-        return 'de ' . $string;
+        return 'de '.$string;
     }
 }
 
@@ -71,11 +71,10 @@ function minToHours(string $minutes): string
     $hours = floor($minutes / 60);
     $min = $minutes - ($hours * 60);
 
-    return \Carbon\Carbon::createFromTimeString($hours . ':' . $min . ':00')->format('H:i');
+    return \Carbon\Carbon::createFromTimeString($hours.':'.$min.':00')->format('H:i');
 }
 
 function hoursToMinutes(string $hours): string
 {
     return floor($hours * 60);
 }
-
