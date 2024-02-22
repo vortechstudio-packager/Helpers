@@ -8,7 +8,7 @@ trait Ramdomize
 {
     public function randomColor()
     {
-        $color = collect(["primary", "secondary", "success", "info", "warning", "danger", "dark", "light"]);
+        $color = collect(['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'dark', 'light']);
 
         return $color->random();
     }
@@ -49,5 +49,4 @@ trait Ramdomize
 
         return mt_rand($st_num * $mul, $end_num * $mul) / $mul;
     }
-
 }

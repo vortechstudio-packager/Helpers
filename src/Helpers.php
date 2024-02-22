@@ -8,5 +8,5 @@ use Vortechstudio\Helpers\Helpers\Ramdomize;
 
 class Helpers
 {
-    use Format, Ramdomize, Generator;
+    use Format, Generator, Ramdomize;
 }
