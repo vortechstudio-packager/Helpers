@@ -80,4 +80,16 @@ trait Format
     {
         return floor($hours * 60);
     }
+
+    public function searchJsonOnString(string $string)
+    {
+        preg_match('/\{(?:[^{}]|(?R))*\}/', $string, $matches);
+        $json = json_decode($matches[0], true);
+
+        if(json_last_error() == JSON_ERROR_NONE) {
+            return $json;
+        } else {
+            return new \Exception('Error JSON Invalid');
+        }
+    }
 }
