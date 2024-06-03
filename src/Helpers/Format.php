@@ -76,6 +76,11 @@ trait Format
         return \Carbon\Carbon::createFromTimeString($hours.':'.$min.':00')->format('H:i');
     }
 
+    public function minToHoursDecimal(int $minutes)
+    {
+        return $minutes / 60.0;
+    }
+
     public function hoursToMinutes(string $hours): string
     {
         return floor($hours * 60);
