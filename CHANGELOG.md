@@ -2,6 +2,10 @@
 
 All notable changes to `Helpers` will be documented in this file.
 
+## 1.3.2 - 2024-06-21
+
+**Full Changelog**: https://github.com/vortechstudio-packager/Helpers/compare/1.3.1...1.3.2
+
 ## 1.3.1 - 2024-06-03
 
 ### What's Changed
