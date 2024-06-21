@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 trait Format
 {
-    public function eur(string $value): string
+    public function eur(int|float $value): string
     {
         return number_format($value, 2, ',', ' ').' €';
     }
